@@ -1,3 +1,80 @@
 {
-  "extends": "next/core-web-vitals"
+	"extends": ["airbnb", "airbnb-typescript", "next/core-web-vitals"],
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		"no-tabs": "off",
+		"no-alert": "off",
+		"arrow-body-style": "off",
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"no-underscore-dangle": "off",
+		"import/prefer-default-export": "off",
+		"import/no-cycle": "off",
+		"quote-props": ["error", "as-needed"],
+		"function-paren-newline": "off",
+		"consistent-return": "off",
+		"no-unsafe-optional-chaining": "off",
+		"max-len": [
+			"error",
+			{
+				"code": 100,
+				"tabWidth": 4,
+				"ignoreComments": true,
+				"ignoreTrailingComments": true,
+				"ignoreUrls": true,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true
+			}
+		],
+		"jsx-a11y/click-events-have-key-events": "off",
+		"jsx-a11y/no-static-element-interactions": "off",
+		"@typescript-eslint/indent": ["error", "tab"],
+		"@typescript-eslint/naming-convention": "off",
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"react-hooks/exhaustive-deps": "off",
+		"react/button-has-type": "off",
+		"react/jsx-one-expression-per-line": "off",
+		"react/jsx-props-no-spreading": "off",
+		"react/no-danger": "off",
+		"react/function-component-definition": "off",
+		"react/no-array-index-key": "off",
+		"react/require-default-props": "off",
+		"react/jsx-curly-brace-presence": [
+			"error",
+			{
+				"props": "ignore",
+				"children": "always"
+			}
+		],
+		"react/jsx-max-props-per-line": [
+			"error",
+			{
+				"maximum": {
+					"single": 1,
+					"multi": 1
+				}
+			}
+		],
+		"react/self-closing-comp": [
+			"error",
+			{
+				"component": true,
+				"html": false
+			}
+		],
+		"@next/next/no-img-element": "off"
+	},
+	"ignorePatterns": [
+		".next",
+		"node_modules",
+		"next.config.mjs",
+		"next-env.d.ts",
+		"package-lock.json",
+		"package.json",
+		"postcss.config.js",
+		"tailwind.config.ts",
+		"tsconfig.json"
+	]
 }
