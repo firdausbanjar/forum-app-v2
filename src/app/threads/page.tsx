@@ -37,7 +37,7 @@ const Threads = () => {
 	};
 
 	return (
-		<section className="flex mb-28 justify-center flex-col lg:flex-row items-center lg:items-start">
+		<section className="flex mb-28 justify-center flex-col lg:flex-row items-center lg:items-start lg:justify-end">
 			<ThreadList threads={threadFilter} />
 			<CategoryList
 				categories={setCategories}
