@@ -3,6 +3,7 @@ import {
 	IResponseAllUsers,
 	IResponseCreateComment,
 	IResponseCreateThread,
+	IResponseLeaderboard,
 	IResponseLogin,
 	IResponseProfile,
 	IResponseRegister,
@@ -305,6 +306,20 @@ const api = (() => {
 		return vote;
 	};
 
+	const getLeaderboard = async () => {
+		const response = await fetch(`${BASE_URL}/leaderboards`);
+		const responseJson: IResponseLeaderboard = await response.json();
+		const { status, message } = responseJson;
+
+		if (status !== 'success') {
+			throw new Error(message);
+		}
+
+		const { data: { leaderboards } } = responseJson;
+
+		return leaderboards;
+	};
+
 	return {
 		getAccessToken,
 		putAccessToken,
@@ -322,6 +337,7 @@ const api = (() => {
 		upVoteComment,
 		downVoteComment,
 		neutralVoteComment,
+		getLeaderboard,
 	};
 })();
 

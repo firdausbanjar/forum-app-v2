@@ -63,6 +63,11 @@ export interface IThreadsAndUsers extends IThread {
 	users: IProfile
 }
 
+export interface ILeaderboard {
+	user: IProfile,
+	score: number
+}
+
 export interface IResponseRegister extends IResponse {
 	data: {
 		user: IRegister
@@ -120,5 +125,11 @@ export interface IResponseVoteThread extends IResponse {
 export interface IResponseVoteComment extends IResponse {
 	data: {
 		vote: IVoteComment
+	}
+}
+
+export interface IResponseLeaderboard extends IResponse {
+	data: {
+		leaderboards: ILeaderboard[]
 	}
 }

@@ -12,7 +12,7 @@ const ThreadInput = ({ onUpload }: ThreadInputProps) => {
 	const [body, onInputBody] = useContentEditable('');
 
 	return (
-		<div className="bg-white rounded-xl p-10 w-2/4 h-fit">
+		<div className="bg-white rounded-xl p-10 h-fit xl:w-6/12 lg:w-7/12 md:w-8/12 sm:w-9/12 w-full">
 			<h2 className="mb-8 text-2xl font-bold border-b-2 border-black pb-3">
 				{'Buat Thread'}
 			</h2>

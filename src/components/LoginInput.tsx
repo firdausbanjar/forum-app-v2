@@ -11,7 +11,7 @@ const LoginInput = ({ onLogin }: LoginInputProps) => {
 	const [password, onChangePassword] = useInput('');
 
 	return (
-		<div className="bg-white rounded-xl p-10 w-2/4 h-fit">
+		<div className="bg-white rounded-xl p-10 h-fit xl:w-5/12 lg:w-7/12 md:w-9/12 sm:w-11/12 w-full">
 			<h2 className="mb-8 text-2xl font-bold border-b-2 border-black pb-3">
 				{'Masuk'}
 			</h2>

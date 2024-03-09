@@ -18,7 +18,7 @@ const Login = () => {
 	};
 
 	return (
-		<section className="h-screen flex justify-center items-center">
+		<section className="h-screen flex justify-center items-center ">
 			<LoginInput onLogin={handleLogin} />
 		</section>
 	);

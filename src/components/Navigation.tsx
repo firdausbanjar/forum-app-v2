@@ -27,7 +27,7 @@ const Navigation = () => {
 
 	return (
 		<nav className="container fixed bg-white bottom-0 h-fit min-w-full">
-			<div className="w-1/2 flex justify-between items-center mx-auto my-2 h-fit">
+			<div className="flex justify-between items-center mx-auto my-2 h-fit xl:w-6/12 lg:w-7/12 md:w-8/12 sm:w-9/12">
 				<div className="ml-20 flex justify-center items-center flex-col">
 					<Link
 						className={`flex justify-center items-center p-3 rounded-full ${pathname === '/threads' && 'bg-black'}`}

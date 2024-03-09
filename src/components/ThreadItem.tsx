@@ -35,7 +35,7 @@ const ThreadItem = ({ thread }: ThreadItemProps) => {
 	};
 
 	return (
-		<div className="mt-2 bg-white shadow-2xl p-10 text-wrap rounded-2xl">
+		<div className="mt-2 bg-white shadow-2xl p-10 text-wrap rounded-2xl w-full">
 			<Link
 				className="mb-3 block"
 				href="/threads/[slug]"
