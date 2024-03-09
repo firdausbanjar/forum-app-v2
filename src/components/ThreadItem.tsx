@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { IThreadsAndUsers } from '@/declarations/interfaces';
+import { useAppDispatch } from '@/states/hooks';
+import { asyncDownVoteThread, asyncNeutralVoteThread, asyncUpVoteThread } from '@/states/threads/action';
 import ThreadAction from './ThreadAction';
 import UserInfo from './UserInfo';
 
@@ -8,6 +10,30 @@ type ThreadItemProps = {
 };
 
 const ThreadItem = ({ thread }: ThreadItemProps) => {
+	const dispatch = useAppDispatch();
+
+	const handleUpVoteThread = ({ threadId, isUpVote }: {
+		threadId: string | undefined
+		isUpVote: boolean
+	}) => {
+		if (isUpVote) {
+			dispatch(asyncNeutralVoteThread(threadId!));
+		} else {
+			dispatch(asyncUpVoteThread(threadId!));
+		}
+	};
+
+	const handleDownVoteThread = ({ threadId, isDownVote }: {
+		threadId: string | undefined
+		isDownVote: boolean
+	}) => {
+		if (isDownVote) {
+			dispatch(asyncNeutralVoteThread(threadId!));
+		} else {
+			dispatch(asyncDownVoteThread(threadId!));
+		}
+	};
+
 	return (
 		<div className="mt-2 bg-white shadow-2xl p-10 text-wrap rounded-2xl">
 			<Link
@@ -37,8 +63,11 @@ const ThreadItem = ({ thread }: ThreadItemProps) => {
 			<ThreadAction
 				iconSize={20}
 				totalComments={thread.totalComments}
-				totalLike={thread.upVotesBy.length}
-				totalDislike={thread.downVotesBy.length}
+				like={thread.upVotesBy}
+				dislike={thread.downVotesBy}
+				threadId={thread.id}
+				onUpVote={handleUpVoteThread}
+				onDownVote={handleDownVoteThread}
 			/>
 		</div>
 	);

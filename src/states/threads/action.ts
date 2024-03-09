@@ -29,28 +29,37 @@ const addThreadActionCreator = (thread: IThread) => {
 	};
 };
 
-const upVoteThreadActionCreator = (userId: string) => {
+const upVoteThreadActionCreator = ({ threadId, userId }: {
+	threadId: string, userId: string
+}) => {
 	return {
 		type: ActionType.UP_VOTE_THREAD,
 		payload: {
+			threadId,
 			userId,
 		},
 	};
 };
 
-const downVoteThreadActionCreator = (userId: string) => {
+const downVoteThreadActionCreator = ({ threadId, userId }: {
+	threadId: string, userId: string
+}) => {
 	return {
 		type: ActionType.DOWN_VOTE_THREAD,
 		payload: {
+			threadId,
 			userId,
 		},
 	};
 };
 
-const neutralVoteThreadActionCreator = (userId: string) => {
+const neutralVoteThreadActionCreator = ({ threadId, userId }: {
+	threadId: string, userId: string
+}) => {
 	return {
 		type: ActionType.NEUTRAL_VOTE_THREAD,
 		payload: {
+			threadId,
 			userId,
 		},
 	};
@@ -71,7 +80,7 @@ const asyncUpVoteThread = (threadId: string) => {
 	return async (dispatch: Dispatch) => {
 		try {
 			const vote = await api.upVoteThread(threadId);
-			dispatch(upVoteThreadActionCreator(vote.userId));
+			dispatch(upVoteThreadActionCreator({ threadId, userId: vote.userId }));
 		} catch (error: any) {
 			alert(error.message);
 		}
@@ -82,7 +91,7 @@ const asyncDownVoteThread = (threadId: string) => {
 	return async (dispatch: Dispatch) => {
 		try {
 			const vote = await api.downVoteThread(threadId);
-			dispatch(downVoteThreadActionCreator(vote.userId));
+			dispatch(downVoteThreadActionCreator({ threadId, userId: vote.userId }));
 		} catch (error: any) {
 			alert(error.message);
 		}
@@ -93,7 +102,7 @@ const asyncNeutralVoteThread = (threadId: string) => {
 	return async (dispatch: Dispatch) => {
 		try {
 			const vote = await api.neutralVoteThread(threadId);
-			dispatch(downVoteThreadActionCreator(vote.userId));
+			dispatch(neutralVoteThreadActionCreator({ threadId, userId: vote.userId }));
 		} catch (error: any) {
 			alert(error.message);
 		}
@@ -102,7 +111,12 @@ const asyncNeutralVoteThread = (threadId: string) => {
 
 export {
 	ActionType,
-	asyncAddThread, downVoteThreadActionCreator,
-	neutralVoteThreadActionCreator, receiveThreadsActionCreator,
+	asyncAddThread,
+	asyncDownVoteThread,
+	asyncNeutralVoteThread,
+	asyncUpVoteThread,
+	downVoteThreadActionCreator,
+	neutralVoteThreadActionCreator,
+	receiveThreadsActionCreator,
 	upVoteThreadActionCreator,
 };

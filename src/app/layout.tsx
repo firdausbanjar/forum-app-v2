@@ -10,17 +10,17 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<StoreProvider>
-			<html lang="en">
-				<body className="bg-gradient min-h-screen">
+		<html lang="en">
+			<body className="bg-gradient min-h-screen">
+				<StoreProvider>
 					<main className="container">
 						<LoadingProvider>
 							{children}
 						</LoadingProvider>
 					</main>
 					<Navigation />
-				</body>
-			</html>
-		</StoreProvider>
+				</StoreProvider>
+			</body>
+		</html>
 	);
 }

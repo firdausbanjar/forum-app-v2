@@ -39,6 +39,13 @@ export interface IVoteThread {
 	voteType: number
 }
 
+export interface IVoteComment {
+	id: string
+	userId: string
+	commentId: string
+	voteType: number
+}
+
 export interface ICreateComment extends IComment {
 	owner: Omit<IProfile, 'avatar'>
 }

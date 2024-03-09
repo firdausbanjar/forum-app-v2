@@ -1,0 +1,61 @@
+import { IThread } from '@/declarations/interfaces';
+
+const handleUpVoteThread = (threads: IThread[] = [], action: any = {}) => {
+	return threads.map((thread) => {
+		if (thread.id === action.payload.threadId) {
+			return {
+				...thread,
+				upVotesBy: [action.payload.userId, ...thread.upVotesBy],
+				downVotesBy: thread.downVotesBy.filter((userId) => {
+					return userId !== action.payload.userId;
+				}),
+			};
+		}
+		return thread;
+	});
+};
+
+const handleDownVoteThread = (threads: IThread[] = [], action: any = {}) => {
+	return threads.map((thread) => {
+		if (thread.id === action.payload.threadId) {
+			return {
+				...thread,
+				upVotesBy: thread.upVotesBy.filter((userId) => {
+					return userId !== action.payload.userId;
+				}),
+				downVotesBy: [action.payload.userId, ...thread.downVotesBy],
+			};
+		}
+		return thread;
+	});
+};
+
+const handleNeutralVoteThread = (threads: IThread[] = [], action: any = {}) => {
+	return threads.map((thread) => {
+		if (thread.id === action.payload.threadId) {
+			if (thread.upVotesBy.includes(action.payload.userId)) {
+				return {
+					...thread,
+					upVotesBy: thread.upVotesBy.filter((userId) => {
+						return userId !== action.payload.userId;
+					}),
+				};
+			}
+			if (thread.downVotesBy.includes(action.payload.userId)) {
+				return {
+					...thread,
+					downVotesBy: thread.downVotesBy.filter((userId) => {
+						return userId !== action.payload.userId;
+					}),
+				};
+			}
+		}
+		return thread;
+	});
+};
+
+export {
+	handleDownVoteThread,
+	handleNeutralVoteThread,
+	handleUpVoteThread,
+};
