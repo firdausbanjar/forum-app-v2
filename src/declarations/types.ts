@@ -19,3 +19,8 @@ export type CommentT = {
 	threadId: string
 	content : string
 };
+
+export type VoteCommentT = {
+	threadId: string
+	commentId: string
+};

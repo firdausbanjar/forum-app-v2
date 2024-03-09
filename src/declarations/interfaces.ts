@@ -32,14 +32,14 @@ export interface IComment {
 	downVotesBy: string[]
 }
 
-export interface IVoteThread {
+interface IVoteThread {
 	id: string
 	userId: string
 	threadId: string
 	voteType: number
 }
 
-export interface IVoteComment {
+interface IVoteComment {
 	id: string
 	userId: string
 	commentId: string
@@ -114,5 +114,11 @@ export interface IResponseAllUsers extends IResponse {
 export interface IResponseVoteThread extends IResponse {
 	data: {
 		vote: IVoteThread
+	}
+}
+
+export interface IResponseVoteComment extends IResponse {
+	data: {
+		vote: IVoteComment
 	}
 }

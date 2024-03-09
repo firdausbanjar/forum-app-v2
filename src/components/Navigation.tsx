@@ -32,7 +32,6 @@ const Navigation = () => {
 					<Link
 						className={`flex justify-center items-center p-3 rounded-full ${pathname === '/threads' && 'bg-black'}`}
 						href="/threads"
-						scroll={false}
 					>
 						<RiDiscussLine
 							size={20}
@@ -45,7 +44,6 @@ const Navigation = () => {
 					<Link
 						className={`flex justify-center items-center p-3 rounded-full ${pathname === '/leaderboard' && 'bg-black'}`}
 						href="/leaderboard"
-						scroll={false}
 					>
 						<MdOutlineLeaderboard
 							size={20}
@@ -59,7 +57,6 @@ const Navigation = () => {
 						<Link
 							className={`flex justify-center items-center p-3 rounded-full ${pathname === '/login' && 'bg-black'}`}
 							href="/login"
-							scroll={false}
 						>
 							<RiLoginBoxLine
 								size={20}
@@ -88,7 +85,7 @@ const Navigation = () => {
 					<Link
 						className="flex justify-center items-center p-3 "
 						href="/threads/new"
-						scroll={false}
+
 					>
 						<RiAddLine
 							size={35}

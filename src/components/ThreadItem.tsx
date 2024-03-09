@@ -40,7 +40,7 @@ const ThreadItem = ({ thread }: ThreadItemProps) => {
 				className="mb-3 block"
 				href="/threads/[slug]"
 				as={`/threads/${thread.id}`}
-				scroll={false}
+
 			>
 				<h3 className="text-2xl text-blue-700 font-bold">
 					{thread.title}

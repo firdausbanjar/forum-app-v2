@@ -13,7 +13,7 @@ const Register = () => {
 	const handleRegister = ({ name, email, password }: RegisterT) => {
 		const result = dispatch(asyncRegisterUser({ name, email, password }));
 		result.then((response) => {
-			if (response === 'success') router.push('/login', { scroll: false });
+			if (response === 'success') router.push('/login');
 		});
 	};
 

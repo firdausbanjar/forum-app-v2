@@ -5,7 +5,7 @@ const handleUpVoteThread = (threads: IThread[] = [], action: any = {}) => {
 		if (thread.id === action.payload.threadId) {
 			return {
 				...thread,
-				upVotesBy: [action.payload.userId, ...thread.upVotesBy],
+				upVotesBy: [...thread.upVotesBy, action.payload.userId],
 				downVotesBy: thread.downVotesBy.filter((userId) => {
 					return userId !== action.payload.userId;
 				}),
@@ -23,7 +23,7 @@ const handleDownVoteThread = (threads: IThread[] = [], action: any = {}) => {
 				upVotesBy: thread.upVotesBy.filter((userId) => {
 					return userId !== action.payload.userId;
 				}),
-				downVotesBy: [action.payload.userId, ...thread.downVotesBy],
+				downVotesBy: [...thread.downVotesBy, action.payload.userId],
 			};
 		}
 		return thread;

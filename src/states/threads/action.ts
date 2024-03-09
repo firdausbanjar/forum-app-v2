@@ -111,6 +111,7 @@ const asyncNeutralVoteThread = (threadId: string) => {
 
 export {
 	ActionType,
+	addThreadActionCreator,
 	asyncAddThread,
 	asyncDownVoteThread,
 	asyncNeutralVoteThread,

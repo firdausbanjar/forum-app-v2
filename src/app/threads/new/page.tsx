@@ -14,7 +14,7 @@ const NewThread = () => {
 
 	const handleUpload = ({ title, category, body }: ThreadT) => {
 		dispatch(asyncAddThread({ title, category, body }));
-		router.push('/threads', { scroll: false });
+		router.push('/threads');
 	};
 
 	if (authUser === null) {

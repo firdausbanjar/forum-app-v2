@@ -38,8 +38,8 @@ const ThreadAction = ({
 	onDownVote,
 }: ThreadActionProps) => {
 	const authUser: IProfile = useAppSelector((states: RootState) => states.authUser);
-	const isUpVote = like.includes(authUser?.id);
-	const isDownVote = dislike.includes(authUser?.id);
+	const isUpVote = like?.includes(authUser?.id ?? '');
+	const isDownVote = dislike?.includes(authUser?.id ?? '');
 
 	return (
 		<div className="flex justify-end items-center">
@@ -60,8 +60,7 @@ const ThreadAction = ({
 							size={iconSize}
 						/>
 					)}
-
-					<p style={{ fontSize: iconSize }}>{like.length}</p>
+					<p style={{ fontSize: iconSize }}>{like?.length}</p>
 				</button>
 				<span
 					className="bg-black"
@@ -82,10 +81,8 @@ const ThreadAction = ({
 							className="mr-2"
 							size={iconSize}
 						/>
-
 					)}
-
-					<p style={{ fontSize: iconSize }}>{dislike.length}</p>
+					<p style={{ fontSize: iconSize }}>{dislike?.length}</p>
 				</button>
 			</div>
 			{totalComments !== undefined && (

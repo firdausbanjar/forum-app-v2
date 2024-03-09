@@ -13,7 +13,7 @@ const Login = () => {
 	const handleLogin = ({ email, password }: LoginT) => {
 		const result = dispatch(asyncSetAuthUser({ email, password }));
 		result.then((response) => {
-			if (response === 'success') router.push('/threads', { scroll: false });
+			if (response === 'success') router.push('/threads');
 		});
 	};
 

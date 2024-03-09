@@ -61,7 +61,6 @@ const LoginInput = ({ onLogin }: LoginInputProps) => {
 					<Link
 						className="text-blue-700 underline"
 						href="/register"
-						scroll={false}
 					>
 						{'daftar disini'}
 					</Link>

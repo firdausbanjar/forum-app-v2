@@ -7,6 +7,7 @@ import {
 	IResponseProfile,
 	IResponseRegister,
 	IResponseThreadDetail,
+	IResponseVoteComment,
 	IResponseVoteThread,
 } from '@/declarations/interfaces';
 import {
@@ -14,6 +15,7 @@ import {
 	LoginT,
 	RegisterT,
 	ThreadT,
+	VoteCommentT,
 } from '@/declarations/types';
 
 const api = (() => {
@@ -234,6 +236,75 @@ const api = (() => {
 		return vote;
 	};
 
+	const upVoteComment = async ({ threadId, commentId }: VoteCommentT) => {
+		const response = await _fetchWithAuth(
+			`${BASE_URL}/threads/${threadId}/comments/${commentId}/up-vote`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		);
+
+		const responseJson: IResponseVoteComment = await response.json();
+		const { status, message } = responseJson;
+
+		if (status !== 'success') {
+			throw new Error(message);
+		}
+
+		const { data: { vote } } = responseJson;
+
+		return vote;
+	};
+
+	const downVoteComment = async ({ threadId, commentId }: VoteCommentT) => {
+		const response = await _fetchWithAuth(
+			`${BASE_URL}/threads/${threadId}/comments/${commentId}/down-vote`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		);
+
+		const responseJson: IResponseVoteComment = await response.json();
+		const { status, message } = responseJson;
+
+		if (status !== 'success') {
+			throw new Error(message);
+		}
+
+		const { data: { vote } } = responseJson;
+
+		return vote;
+	};
+
+	const neutralVoteComment = async ({ threadId, commentId }: VoteCommentT) => {
+		const response = await _fetchWithAuth(
+			`${BASE_URL}/threads/${threadId}/comments/${commentId}/neutral-vote`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			},
+		);
+
+		const responseJson: IResponseVoteComment = await response.json();
+		const { status, message } = responseJson;
+
+		if (status !== 'success') {
+			throw new Error(message);
+		}
+
+		const { data: { vote } } = responseJson;
+
+		return vote;
+	};
+
 	return {
 		getAccessToken,
 		putAccessToken,
@@ -248,6 +319,9 @@ const api = (() => {
 		upVoteThread,
 		downVoteThread,
 		neutralVoteThread,
+		upVoteComment,
+		downVoteComment,
+		neutralVoteComment,
 	};
 })();
 

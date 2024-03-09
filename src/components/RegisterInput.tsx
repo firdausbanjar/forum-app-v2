@@ -75,7 +75,7 @@ const RegisterInput = ({ onRegister }: RegisterInputProps) => {
 					<Link
 						className="text-blue-700 underline"
 						href="/login"
-						scroll={false}
+
 					>
 						{'Masuk disini'}
 					</Link>

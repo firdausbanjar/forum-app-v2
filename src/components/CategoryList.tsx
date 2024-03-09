@@ -10,7 +10,7 @@ const CategoryList = ({ categories, setCategory }: CategoriesProps) => {
 	const category: string = useAppSelector((states: RootState) => states.category);
 
 	return (
-		<div className="flex flex-col top-2 bg-white shadow-2xl p-8 text-wrap rounded-2xl h-fit ml-4 mt-2 w-80">
+		<div className="flex flex-col justify-center items-center top-2 bg-white shadow-2xl p-8 text-wrap rounded-2xl h-fit ml-4 mt-2 w-80">
 			<h3 className="text-2xl">{'Kategori Populer'}</h3>
 			<div className="mt-5 flex flex-wrap">
 				{categories.map((value, key) => (
