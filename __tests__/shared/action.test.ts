@@ -12,7 +12,7 @@ import { receiveUsersActionCreator } from '@/states/user/action';
 import api from '@/utils/api';
 
 /**
- * Skenario Test
+ * Scenario Test
  * - asyncReceiveThreadsAndUser thunk
  *   - should dispatch action correctly when data fetching success
  *   - should dispatch action and call alert correctly when data fetching failed
