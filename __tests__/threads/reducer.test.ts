@@ -65,7 +65,7 @@ describe('threadsReducer function', () => {
 	});
 
 	it('should return the threads with the new thread when given by ADD_THREAD action', () => {
-		const initialState = [
+		const initialState: IThread[] = [
 			{
 				id: 'thread-Np47p4jhUXYhrhRn',
 				title: 'Bagaimana pengalamanmu belajar Redux?',
@@ -115,7 +115,7 @@ describe('threadsReducer function', () => {
 	});
 
 	it('should return the thread with the down vote thread when given by UP_VOTE_THREAD action', () => {
-		const initialState = [
+		const initialState: IThread[] = [
 			{
 				id: 'thread-Np47p4jhUXYhrhRn',
 				title: 'Bagaimana pengalamanmu belajar Redux?',
@@ -148,7 +148,7 @@ describe('threadsReducer function', () => {
 	});
 
 	it('should return the thread with the down vote thread when given by DOWN_VOTE_THREAD action', () => {
-		const initialState = [
+		const initialState: IThread[] = [
 			{
 				id: 'thread-Np47p4jhUXYhrhRn',
 				title: 'Bagaimana pengalamanmu belajar Redux?',
@@ -181,7 +181,7 @@ describe('threadsReducer function', () => {
 	});
 
 	it('should return the thread with the down vote thread when given by NEUTRAL_VOTE_THREAD action', () => {
-		const initialState = [
+		const initialState: IThread[] = [
 			{
 				id: 'thread-Np47p4jhUXYhrhRn',
 				title: 'Bagaimana pengalamanmu belajar Redux?',
@@ -217,14 +217,18 @@ describe('threadsReducer function', () => {
 		expect(stateUser1).toEqual([
 			{
 				...initialState[0],
-				upVotesBy: [],
+				upVotesBy: initialState[0].upVotesBy.filter((userId) => {
+					return userId !== actionUser1.payload.userId;
+				}),
 			},
 		]);
 
 		expect(stateUser2).toEqual([
 			{
 				...initialState[0],
-				downVotesBy: [],
+				downVotesBy: initialState[0].downVotesBy.filter((userId) => {
+					return userId !== actionUser2.payload.userId;
+				}),
 			},
 		]);
 	});
