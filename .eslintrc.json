@@ -1,7 +1,7 @@
 {
 	"extends": ["airbnb", "airbnb-typescript", "next/core-web-vitals"],
 	"parserOptions": {
-		"project": "./tsconfig.json"
+		"project": ["./tsconfig.json", "./cypress/tsconfig.json"]
 	},
 	"plugins": ["cypress"],
 	"env": {
