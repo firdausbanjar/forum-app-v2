@@ -30,6 +30,7 @@ const ThreadInput = ({ onUpload }: ThreadInputProps) => {
 						id="title"
 						value={title}
 						onChange={onChangeTitle}
+						data-testid="title"
 						required
 					/>
 				</div>
@@ -37,7 +38,7 @@ const ThreadInput = ({ onUpload }: ThreadInputProps) => {
 					<label
 						className="font-semibold"
 						htmlFor="category"
-					>{'Kategory'}
+					>{'Kategori'}
 					</label>
 					<input
 						className="rounded-md p-2 outline-none mt-3 border border-black"
@@ -46,6 +47,7 @@ const ThreadInput = ({ onUpload }: ThreadInputProps) => {
 						id="category"
 						value={category}
 						onChange={onChangeCategory}
+						data-testid="category"
 						required
 					/>
 				</div>
@@ -60,6 +62,7 @@ const ThreadInput = ({ onUpload }: ThreadInputProps) => {
 						id="body"
 						contentEditable
 						onInput={onInputBody}
+						data-testid="body"
 					/>
 				</div>
 				<button

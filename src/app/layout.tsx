@@ -2,7 +2,7 @@ import Navigation from '@/components/Navigation';
 import StoreProvider from '@/components/StoreProvider';
 
 import Header from '@/components/Header';
-import LoadingProvider from '@/components/LoadingPovider';
+import LoadingProvider from '@/components/LoadingProvider';
 import './globals.css';
 
 export default function RootLayout({

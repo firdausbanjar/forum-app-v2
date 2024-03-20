@@ -30,6 +30,7 @@ const RegisterInput = ({ onRegister }: RegisterInputProps) => {
 						name="name"
 						id="name"
 						onChange={onChangeName}
+						data-testid="name"
 					/>
 				</div>
 				<div className="flex flex-col mb-5 w-full">
@@ -45,6 +46,7 @@ const RegisterInput = ({ onRegister }: RegisterInputProps) => {
 						name="email"
 						id="email"
 						onChange={onChangeEmail}
+						data-testid="email"
 					/>
 				</div>
 				<div className="flex flex-col mb-5 w-full">
@@ -61,6 +63,7 @@ const RegisterInput = ({ onRegister }: RegisterInputProps) => {
 						id="password"
 						minLength={6}
 						onChange={onChangePassword}
+						data-testid="password"
 					/>
 				</div>
 				<button
