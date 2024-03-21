@@ -76,7 +76,6 @@ const Navigation = () => {
 								/>
 							</button>
 						)}
-
 					<p>{authUser === null ? 'Login' : 'Logout'}</p>
 				</div>
 			</div>
@@ -85,7 +84,6 @@ const Navigation = () => {
 					<Link
 						className="flex justify-center items-center p-3 "
 						href="/threads/new"
-
 					>
 						<RiAddLine
 							size={35}
