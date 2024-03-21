@@ -53,18 +53,18 @@ const Navigation = () => {
 					<p>{'Leaderboard'}</p>
 				</div>
 				<div className="mr-20 flex justify-center items-center flex-col">
-					{authUser === null ? (
-						<Link
-							className={`flex justify-center items-center p-3 rounded-full ${pathname === '/login' && 'bg-black'}`}
-							href="/login"
-						>
-							<RiLoginBoxLine
-								size={20}
-								color={pathname === '/login' ? 'white' : 'black'}
-							/>
-						</Link>
-					)
-						: (
+					{authUser === null
+						? (
+							<Link
+								className={`flex justify-center items-center p-3 rounded-full ${pathname === '/login' && 'bg-black'}`}
+								href="/login"
+							>
+								<RiLoginBoxLine
+									size={20}
+									color={pathname === '/login' ? 'white' : 'black'}
+								/>
+							</Link>
+						) : (
 							<button
 								type="button"
 								onClick={handleLogout}
